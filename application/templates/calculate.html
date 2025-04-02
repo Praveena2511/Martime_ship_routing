@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Fuel Consumption</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .form-grid .form-group {
+            flex: 1 1 calc(50% - 15px); /* Two columns with space between */
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result-container {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculate Fuel Consumption</h1>
+        <form method="POST">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Speed Over Ground (kn):</label>
+                    <input type="text" name="speed_over_ground" value="{{ form_data.get('speed_over_ground', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Speed Through Water (kn):</label>
+                    <input type="text" name="speed_through_water" value="{{ form_data.get('speed_through_water', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Course (°):</label>
+                    <input type="text" name="course" value="{{ form_data.get('course', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Heading (°):</label>
+                    <input type="text" name="heading" value="{{ form_data.get('heading', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Main Engine RPM:</label>
+                    <input type="text" name="main_engine_rpm" value="{{ form_data.get('main_engine_rpm', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Main Engine Power (kW):</label>
+                    <input type="text" name="main_engine_power" value="{{ form_data.get('main_engine_power', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Main Engine Torque (Nm):</label>
+                    <input type="text" name="main_engine_torque" value="{{ form_data.get('main_engine_torque', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Mean Draft (m):</label>
+                    <input type="text" name="mean_draft" value="{{ form_data.get('mean_draft', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Draft Aft (m):</label>
+                    <input type="text" name="draft_aft" value="{{ form_data.get('draft_aft', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Draft Fwd (m):</label>
+                    <input type="text" name="draft_fwd" value="{{ form_data.get('draft_fwd', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Rate of Turn (°/min):</label>
+                    <input type="text" name="rate_of_turn" value="{{ form_data.get('rate_of_turn', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Wave Height (m):</label>
+                    <input type="text" name="wave_height" value="{{ form_data.get('wave_height', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Wind Speed (kn):</label>
+                    <input type="text" name="wind_speed" value="{{ form_data.get('wind_speed', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Swell Height (m):</label>
+                    <input type="text" name="swell_height" value="{{ form_data.get('swell_height', '') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Current Speed (kn):</label>
+                    <input type="text" name="current_speed" value="{{ form_data.get('current_speed', '') }}" required>
+                </div>
+            </div>
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if fuel_consumed %}
+        <div class="result-container">
+            <h2>Result</h2>
+            <p><strong>Fuel Consumed:</strong> {{ fuel_consumed }} L/hr</p>
+        </div>
+        {% elif error %}
+        <div class="result-container">
+            <p style="color:red;"><strong>Error:</strong> {{ error }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

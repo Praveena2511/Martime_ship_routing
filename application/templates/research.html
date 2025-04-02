@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research & Findings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/problem">Problem</a></li>
+                <li><a href="/route-planning">Route Planning</a></li>
+                <li><a href="/fuel-prediction">Fuel Prediction</a></li>
+                <li><a href="/route-comparison">Comparison</a></li>
+                <li><a href="/simulation">Simulation</a></li>
+                <li><a href="/research">Research</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="research">
+        <h1>Our Research & Findings</h1>
+        <p>Discover how AI and Machine Learning enhance maritime route planning.</p>
+        <div class="research-content">
+            <h2>Key Findings</h2>
+            <ul>
+                <li>Optimized routes reduce fuel consumption by up to 20%.</li>
+                <li>Reinforcement Learning adapts to changing weather conditions.</li>
+                <li>Graph Neural Networks improve route prediction accuracy.</li>
+            </ul>
+            <h2>Download Research Paper</h2>
+            <a href="{{ url_for('static', filename='research_paper.pdf') }}" class="download-btn">Download PDF</a>
+        </div>
+    </section>
+</body>
+</html>

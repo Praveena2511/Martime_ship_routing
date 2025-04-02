@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Feedback</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/problem">Problem</a></li>
+                <li><a href="/route-planning">Route Planning</a></li>
+                <li><a href="/fuel-prediction">Fuel Prediction</a></li>
+                <li><a href="/route-comparison">Comparison</a></li>
+                <li><a href="/simulation">Simulation</a></li>
+                <li><a href="/research">Research</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="contact">
+        <h1>Contact Us & Feedback</h1>
+        <p>We’d love to hear from you! Reach out with questions or feedback.</p>
+        <form action="/submit-feedback" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <h2>User Feedback</h2>
+        <div id="feedback-container">
+            <p>No feedback yet. Be the first to share your thoughts!</p>
+        </div>
+    </section>
+</body>
+</html>

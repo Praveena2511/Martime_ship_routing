@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMROUTE Report: Palma_Barna</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .output {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+        .calculate-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .calculate-button:hover {
+            background-color: #45a049;
+        }
+        .result-container {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SIMROUTE Report: Palma_Barna</h1>
+
+        <div class="button-container">
+            <a href="{{ url_for('calculate') }}" class="calculate-button">Calculate Fuel Consumption</a>
+        </div>
+        
+        <div class="output">
+            <p><strong>Initial Velocity in knots:</strong> 16.1</p>
+            <p><strong>WEN_form:</strong> 1</p>
+            <p><strong>Departure:</strong> Node = 1411 -- Coordinates: (2.9000, 39.2250)</p>
+            <p><strong>Departure Time:</strong> 20-01-2020 9:00</p>
+            <p><strong>Arrival:</strong> Node = 12781 -- Coordinates: (2.7750, 41.5000)</p>
+            <p><strong>Number of Nodes:</strong> Nx = 125, Ny = 109, Nx * Ny = 13625</p>
+            <p><strong>Geodetic Distance (in miles):</strong> 136.62</p>
+        </div>
+
+        <div class="section-title">Route Optimization Details</div>
+        <table>
+            <tr>
+                <th>Route Type</th>
+                <th>Sailed Hours</th>
+                <th>Sailed Miles</th>
+            </tr>
+            <tr>
+                <td><strong>Optimized Route</strong></td>
+                <td>14.97 hours</td>
+                <td>161.56 miles</td>
+            </tr>
+            <tr>
+                <td><strong>Minimum Distance</strong></td>
+                <td>16.93 hours</td>
+                <td>151.38 miles</td>
+            </tr>
+            <tr>
+                <td><strong>Minimum Distance (without waves)</strong></td>
+                <td>9.40 hours</td>
+                <td>151.38 miles</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

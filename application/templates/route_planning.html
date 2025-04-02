@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Planning - Maritime Route Optimization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/problem">Problem</a></li>
+                <li><a href="/route-planning">Route Planning</a></li>
+                <li><a href="/fuel-prediction">Fuel Prediction</a></li>
+                <li><a href="/route-comparison">Comparison</a></li>
+                <li><a href="/simulation">Simulation</a></li>
+                <li><a href="/research">Research</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="route-planning">
+        <h1>Plan Your Maritime Route</h1>
+        <p>Use the interactive map below to set your departure and destination points.</p>
+        <div id="map"></div>
+        <button onclick="calculateRoute()">Find Optimized Route</button>
+    </section>
+    <script>
+        var map = L.map('map').setView([20, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        var startMarker, endMarker;
+        function onMapClick(e) {
+            if (!startMarker) {
+                startMarker = L.marker(e.latlng).addTo(map).bindPopup("Start Point").openPopup();
+            } else if (!endMarker) {
+                endMarker = L.marker(e.latlng).addTo(map).bindPopup("End Point").openPopup();
+            }
+        }
+        map.on('click', onMapClick);
+
+        function calculateRoute() {
+            if (startMarker && endMarker) {
+                alert("Route calculation logic will be implemented here!");
+            } else {
+                alert("Please select both start and end points.");
+            }
+        }
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+

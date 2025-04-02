@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/problem">Problem</a></li>
+                <li><a href="/route-planning">Route Planning</a></li>
+                <li><a href="/fuel-prediction">Fuel Prediction</a></li>
+                <li><a href="/route-comparison">Comparison</a></li>
+                <li><a href="/simulation">Simulation</a></li>
+                <li><a href="/research">Research</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="dashboard">
+        <h1>User & Admin Dashboard</h1>
+        <div class="dashboard-container">
+            <div class="dashboard-card">
+                <h2>Recent Predictions</h2>
+                <ul id="predictions-list">
+                    <li>No recent predictions.</li>
+                </ul>
+            </div>
+            <div class="dashboard-card">
+                <h2>User Queries</h2>
+                <ul id="queries-list">
+                    <li>No queries submitted.</li>
+                </ul>
+            </div>
+            <div class="dashboard-card">
+                <h2>Analyzed Routes</h2>
+                <ul id="routes-list">
+                    <li>No analyzed routes yet.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

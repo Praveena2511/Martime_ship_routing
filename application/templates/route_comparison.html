@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Comparison</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/problem">Problem</a></li>
+                <li><a href="/route-planning">Route Planning</a></li>
+                <li><a href="/fuel-prediction">Fuel Prediction</a></li>
+                <li><a href="/route-comparison">Comparison</a></li>
+                <li><a href="/simulation">Simulation</a></li>
+                <li><a href="/research">Research</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="route-comparison">
+        <h1>Compare Route Options</h1>
+        <p>Analyze the differences between the optimized route and the minimum distance route.</p>
+        <div class="chart-container">
+            <canvas id="routeChart"></canvas>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var ctx = document.getElementById("routeChart").getContext("2d");
+            var routeChart = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["Optimized Route", "Minimum Distance Route"],
+                    datasets: [
+                        {
+                            label: "Fuel Consumption (tons)",
+                            backgroundColor: ["#3498db", "#e74c3c"],
+                            data: [120, 140]  // Example data
+                        },
+                        {
+                            label: "Travel Time (hours)",
+                            backgroundColor: ["#2ecc71", "#f39c12"],
+                            data: [36, 30]  // Example data
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

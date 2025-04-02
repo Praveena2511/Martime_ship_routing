@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Consumption Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/problem">Problem</a></li>
+                <li><a href="/route-planning">Route Planning</a></li>
+                <li><a href="/fuel-prediction">Fuel Prediction</a></li>
+                <li><a href="/route-comparison">Comparison</a></li>
+                <li><a href="/simulation">Simulation</a></li>
+                <li><a href="/research">Research</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="fuel-prediction">
+        <h1>Predict Fuel Consumption</h1>
+        <p>Enter the ship's parameters to predict fuel consumption.</p>
+        <form action="/calculate" method="post">
+            <label>Speed Over Ground (knots):</label>
+            <input type="number" name="speed_over_ground" step="0.1" required>
+
+            <label>Speed Through Water (knots):</label>
+            <input type="number" name="speed_through_water" step="0.1" required>
+
+            <label>Course (degrees):</label>
+            <input type="number" name="course" step="0.1" required>
+
+            <label>Heading (degrees):</label>
+            <input type="number" name="heading" step="0.1" required>
+
+            <label>Main Engine RPM:</label>
+            <input type="number" name="main_engine_rpm" step="0.1" required>
+
+            <label>Main Engine Power (kW):</label>
+            <input type="number" name="main_engine_power" step="0.1" required>
+
+            <label>Main Engine Torque (kNm):</label>
+            <input type="number" name="main_engine_torque" step="0.1" required>
+
+            <label>Mean Draft (m):</label>
+            <input type="number" name="mean_draft" step="0.1" required>
+
+            <label>Draft Aft (m):</label>
+            <input type="number" name="draft_aft" step="0.1" required>
+
+            <label>Draft Forward (m):</label>
+            <input type="number" name="draft_fwd" step="0.1" required>
+
+            <label>Rate of Turn (°/min):</label>
+            <input type="number" name="rate_of_turn" step="0.1" required>
+
+            <label>Wave Height (m):</label>
+            <input type="number" name="wave_height" step="0.1" required>
+
+            <label>Wind Speed (m/s):</label>
+            <input type="number" name="wind_speed" step="0.1" required>
+
+            <label>Swell Height (m):</label>
+            <input type="number" name="swell_height" step="0.1" required>
+
+            <label>Current Speed (m/s):</label>
+            <input type="number" name="current_speed" step="0.1" required>
+
+            <button type="submit">Predict Fuel Consumption</button>
+        </form>
+    </section>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
